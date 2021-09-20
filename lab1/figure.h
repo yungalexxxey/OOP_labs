@@ -1,7 +1,7 @@
 #ifndef FIGURE_H
 #define FIGURE_H
 #include <iostream>
-class figure {
+class Figure {
  public:
      virtual void Print(std::ostream&os)=0;
      virtual double Area()=0;
