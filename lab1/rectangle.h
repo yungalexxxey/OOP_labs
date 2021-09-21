@@ -3,15 +3,15 @@
 #include "figure.h"
 #include <iostream>
 
-class rectangle:public figure{
+class Rectangle:public figure{
 public:
-    rectangle();
-    rectangle(std::istream&is);
+    Rectangle();
+    Rectangle(std::istream&is);
     bool isit();
     void Print(std::ostream&os);
     size_t VertexesNumber();
     double Area();
-    ~rectangle();
+    ~Rectangle();
 
 private:
     double x1;
