@@ -3,16 +3,16 @@
 #include "figure.h"
 #include <iostream>
 
-class rhombus:public figure
+class Rhombus:public figure
 {
 public:
-    rhombus();
-    rhombus(std::istream&is);
+    Rhombus();
+    Rhombus(std::istream&is);
     bool isit();
     void Print(std::ostream&os);
     size_t VertexesNumber();
     double Area();
-    ~rhombus();
+    ~Rhombus();
 
 private:
     double x1;
