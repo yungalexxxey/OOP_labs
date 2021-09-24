@@ -3,15 +3,15 @@
 #include "figure.h"
 #include <iostream>
 
-class rectangle:public figure{
+class Rectangle:public figure{
 public:
-    rectangle();
+    Rectangle();
     size_t VertexesNumber();
     double Area();
     bool isit();
-    friend std::ostream& operator<<(std::ostream &out, const rectangle &rec);
-    friend std::istream& operator>>(std::istream &in, rectangle &rec);
-    rectangle& operator= (rectangle &rec1);
+    friend std::ostream& operator<<(std::ostream &out, const Rectangle &rec);
+    friend std::istream& operator>>(std::istream &in, Rectangle &rec);
+    Rectangle& operator= (Rectangle &rec1);
 
 private:
     double x1;
