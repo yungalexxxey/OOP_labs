@@ -3,26 +3,26 @@
 TVector::TVector():length(0),count(0)
 {  }
 
-int TVector::size(){
+int TVector::Length(){
     return this->length;
 }
-bool TVector::empty(){
+bool TVector::Empty(){
     if(this->length>0) return true;
     else return false;
 }
 
-void TVector::resize(int newlength){
+void TVector::Resize(int newlength){
     std::cout<<length<< " " << count<<std::endl;
     if(newlength==length) return;
     if(newlength>length){
-        rectangle *narr=new rectangle[newlength];
+        Rectangle *narr=new Rectangle[newlength];
         for(int i=0;i<length;i++)
             narr[i]=arr[i];
         arr=narr;
         length=newlength;
     }
     else {
-        rectangle *narr=new rectangle[newlength];
+        Rectangle *narr=new Rectangle[newlength];
         for(int i=0;i<newlength;i++)
             narr[i]=arr[i];
         arr=narr;
@@ -30,12 +30,11 @@ void TVector::resize(int newlength){
     }
     std::cout<<length<< " " << count<<std::endl;
 }
-void TVector::push_back(rectangle newrec){
-    std::cout<<length<<" " << count<<std::endl;
+void TVector::InsertLast(Rectangle &newrec){
     if(count==length){
         length++;
         count++;
-        rectangle *narr=new rectangle[length];
+        Rectangle *narr=new Rectangle[length];
         for(int i=0;i<length-1;i++) narr[i]=arr[i];
         narr[length-1]=newrec;
         //free(arr);
@@ -44,35 +43,33 @@ void TVector::push_back(rectangle newrec){
     else if(count<length){
         arr[count]=newrec;
         count++;
-        std::cout<<length<<" " << count<<std::endl;
     }
 }
 
-void TVector::clear(){
+void TVector::Clear(){
     free(arr);
     length=0;
     count=0;
 }
-rectangle TVector::pop_back(){
-        rectangle *narr=new rectangle[length];
+const Rectangle TVector::Last(){
+        Rectangle *narr=new Rectangle[length];
         for(int i=0;i<count-1;i++){
                 narr[i]=arr[i];
         }
-        rectangle tmp=arr[count-1];
+        Rectangle tmp=arr[count-1];
         count--;
         length--;
         arr=narr;
         return tmp;
-
 }
 
-void TVector::erase(int pos){
+void TVector::Remove(int pos){
 if(count==0)
 {
     std::cout<<"Container is empty"<<std::endl;
     return;
 }
-    rectangle *narr=new rectangle[length-1];
+    Rectangle *narr=new Rectangle[length-1];
     int current_index=0;
     for(int i=0;i<count;i++){
         if(i!=pos-1) {
@@ -87,19 +84,10 @@ if(count==0)
 }
 
 //перегрузка операций
-rectangle& TVector::operator[] (int i)
+Rectangle& TVector::operator[] (int i)
 {
     if(i >= 0 && i < this->length)
         return this->arr[i];
-}
-
-std::istream& operator>>(std::istream &in, TVector &cont){
-    for(int i=0;i<cont.length;i++){
-        std::cout<<"Insert rectangle #"<<i+1<<" coords:";
-        cont.count+=1;
-        in>>cont.arr[i];
-    }
-    return in;
 }
 
 

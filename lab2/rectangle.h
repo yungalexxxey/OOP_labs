@@ -6,6 +6,7 @@
 class Rectangle:public figure{
 public:
     Rectangle();
+    Rectangle(int x1,int x2,int x3,int x4,int y1,int y2,int y3,int y4);
     size_t VertexesNumber();
     double Area();
     bool isit();

@@ -5,6 +5,16 @@
 Rectangle::Rectangle():x1(0),y1(0),x2(0),y2(0),x3(0),y3(0),x4(0),y4(0){
 
 }
+Rectangle::Rectangle(int x1,int x2,int x3,int x4,int y1,int y2,int y3,int y4){
+    this->x1=x1;
+    this->x2=x2;
+    this->x3=x3;
+    this->x4=x4;
+    this->y1=y1;
+    this->y2=y2;
+    this->y3=y3;
+    this->y4=y4;
+};
 size_t Rectangle::VertexesNumber(){
     return 4;
 }
@@ -28,7 +38,6 @@ double Rectangle::Area(){
 }
 
 std::ostream& operator<<(std::ostream &out, const Rectangle &rec){
-
     out << "Rectangle coords " <<"("<< rec.x1 << "," << rec.y1 << ")"<< " "  <<"("<< rec.x2 << "," << rec.y2 << ")"<< " "<< "("<< rec.x3 << "," << rec.y3 << ")"<< " " << "("<<rec.x4 << "," << rec.y4 << ")"<< std::endl;
     return out;
 }

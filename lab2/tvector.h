@@ -7,20 +7,20 @@ class TVector
 private:
     int length;
     int count;
-    rectangle *arr;
+    Rectangle *arr;
 public:
     TVector();
-    int size();
-    bool empty();
-    void resize(int nindex);
-    void push_back(rectangle newrec);
-    void erase(int pos);
-    rectangle pop_back();
-    void clear();
+    TVector(const TVector& other);
+    void InsertLast(Rectangle &newrec);
+    const Rectangle Last();
+    int Length();
+    bool Empty();
+    void Resize(int nindex);
+    void Remove(int pos);
+    void Clear();
 
-    rectangle& operator[] (int i) ;
-    friend std::istream& operator>>(std::istream &in, TVector &cont);
-    friend std::ostream& operator<<(std::ostream &out,  TVector &cont);
+    Rectangle& operator[] (int i) ;
+    friend std::ostream& operator<<(std::ostream &out, TVector &cont);
 };
 
 #endif // TVECTOR_H
