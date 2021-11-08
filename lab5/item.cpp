@@ -19,7 +19,7 @@ std::shared_ptr<Item<T>> Item<T>::GetNext() {
 }
 template <class T>
 Item<T>::~Item() {
-  std::cout << "Stack item: deleted" << std::endl;
+  std::cout << "TVector item: deleted" << std::endl;
 }
 template <class T>
 void Item<T>::SetNext(std::shared_ptr<Item<T>>& next) {

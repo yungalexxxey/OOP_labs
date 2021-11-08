@@ -5,40 +5,46 @@
 #include "trapezoid.h"
 
 template <class T>
-TVector<T>::TVector():length(0),count(0) {  }
+TVector<T>::TVector():length(0),count(0)
+{  }
 
 template <class T>
 int TVector<T>::size(){
     return this->length;
 }
+
 template <class T>
 bool TVector<T>::empty(){
     if(this->length>0) return true;
     else return false;
 }
+
 template <class T>
-void TVector<T>::push_back(std::shared_ptr<T> &&newrec){
+void TVector<T>::push_back(std::shared_ptr<T> newfig){
     if(count==length){
         length++;
         count++;
-        std::shared_ptr<T> *narr=new std::shared_ptr<T>[length];
+        std::shared_ptr<std::shared_ptr<T>[]> narr(new std::shared_ptr<T>[length]);
         for(int i=0;i<length-1;i++) narr[i]=arr[i];
-        narr[length-1]=newrec;
+
+        narr[length-1]= newfig;
         //free(arr);
         arr=narr;
     }
     else if(count<length){
-        arr[count]=newrec;
+        arr[count]=newfig;
         count++;
     }
 }
+
 template <class T>
 TVector<T>::~TVector(){
 
 }
+
 template <class T>
 std::shared_ptr<T> TVector<T>::pop_back(){
-        std::shared_ptr<T> *narr=new std::shared_ptr<T>[length];
+        std::shared_ptr<std::shared_ptr<T>[]> narr(new std::shared_ptr<T>[length]);
         for(int i=0;i<count-1;i++){
                 narr[i]=arr[i];
         }
@@ -53,14 +59,14 @@ template <class T>
 void TVector<T>::resize(int newlength){
     if(newlength==length) return;
     if(newlength>length){
-        std::shared_ptr<T> *narr=new std::shared_ptr<T>[newlength];
+        std::shared_ptr<std::shared_ptr<T>[]> narr(new std::shared_ptr<T>[length]);
         for(int i=0;i<length;i++)
             narr[i]=arr[i];
         arr=narr;
         length=newlength;
     }
     else {
-       std::shared_ptr<T> *narr=new std::shared_ptr<T>[newlength];
+        std::shared_ptr<std::shared_ptr<T>[]> narr(new std::shared_ptr<T>[length]);
         for(int i=0;i<newlength;i++)
             narr[i]=arr[i];
         arr=narr;
@@ -70,7 +76,8 @@ void TVector<T>::resize(int newlength){
 
 template <class T>
 void TVector<T>::clear(){
-    free(arr);
+    resize(1);
+    pop_back();
     length=0;
     count=0;
 }
@@ -82,7 +89,7 @@ if(count==0)
     std::cout<<"Container is empty"<<std::endl;
     return;
 }
- std::shared_ptr<T> *narr=new std::shared_ptr<T>[length-1];
+        std::shared_ptr<std::shared_ptr<T>[]> narr(new std::shared_ptr<T>[length]);
     int current_index=0;
     for(int i=0;i<count;i++){
         if(i!=pos-1) {
@@ -98,7 +105,7 @@ if(count==0)
 
 //перегрузка операций
 template <class T>
-std::shared_ptr<T>& TVector<T>::operator[] (int i)
+std::shared_ptr<T> TVector<T>::operator[] (int i)
 {
     if(i >= 0 && i < this->length)
         return this->arr[i];

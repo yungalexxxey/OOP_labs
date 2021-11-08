@@ -4,8 +4,6 @@
 #include "rectangle.h"
 #include "Figure.h"
 #include "tvector.h"
-//#include "rhombus.cpp"
-//#include "trapezoid.h"
 int main()
 {
     TVector container;
@@ -14,10 +12,7 @@ int main()
     std::shared_ptr<rectangle> t;
     std::cout<<container<<std::endl;
     std::cout<<container.size()<<std::endl;
-    t=container.pop_back();
-    std::cout<< *t;
-    std::cout<<container.size()<<std::endl;
-    container.resize(5);
-    std::cout<<container.size()<<std::endl;
+    container.clear();
+    std::cout<<container<<std::endl;
     return 0;
 }

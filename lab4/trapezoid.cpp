@@ -30,7 +30,7 @@ size_t Trapezoid::VertexesNumber(){
     return 4;
 }
 Trapezoid::~Trapezoid(){
-    std::cout<<"Rectangle was deleted\n";
+    std::cout<<"Trapezoid was deleted\n";
 }
 
 bool Trapezoid::isit(){

@@ -11,13 +11,14 @@ bool TVector::empty(){
     else return false;
 }
 
-void TVector::push_back(std::shared_ptr<rectangle> &&newrec){
+void TVector::push_back(std::shared_ptr<rectangle> newrec){
     if(count==length){
         length++;
         count++;
-        std::shared_ptr<rectangle> *narr=new std::shared_ptr<rectangle>[length];
+        std::shared_ptr<std::shared_ptr<rectangle>[]> narr(new std::shared_ptr<rectangle>[length]);
         for(int i=0;i<length-1;i++) narr[i]=arr[i];
-        narr[length-1]=newrec;
+
+        narr[length-1]= newrec;
         //free(arr);
         arr=narr;
     }
@@ -30,7 +31,7 @@ TVector::~TVector(){
 
 }
 std::shared_ptr<rectangle> TVector::pop_back(){
-        std::shared_ptr<rectangle> *narr=new std::shared_ptr<rectangle>[length];
+        std::shared_ptr<std::shared_ptr<rectangle>[]> narr(new std::shared_ptr<rectangle>[length]);
         for(int i=0;i<count-1;i++){
                 narr[i]=arr[i];
         }
@@ -43,14 +44,14 @@ std::shared_ptr<rectangle> TVector::pop_back(){
 void TVector::resize(int newlength){
     if(newlength==length) return;
     if(newlength>length){
-        std::shared_ptr<rectangle> *narr=new std::shared_ptr<rectangle>[newlength];
+        std::shared_ptr<std::shared_ptr<rectangle>[]> narr(new std::shared_ptr<rectangle>[length]);
         for(int i=0;i<length;i++)
             narr[i]=arr[i];
         arr=narr;
         length=newlength;
     }
     else {
-       std::shared_ptr<rectangle> *narr=new std::shared_ptr<rectangle>[newlength];
+        std::shared_ptr<std::shared_ptr<rectangle>[]> narr(new std::shared_ptr<rectangle>[length]);
         for(int i=0;i<newlength;i++)
             narr[i]=arr[i];
         arr=narr;
@@ -60,7 +61,8 @@ void TVector::resize(int newlength){
 
 
 void TVector::clear(){
-    free(arr);
+    resize(1);
+    pop_back();
     length=0;
     count=0;
 }
@@ -72,7 +74,7 @@ if(count==0)
     std::cout<<"Container is empty"<<std::endl;
     return;
 }
- std::shared_ptr<rectangle> *narr=new std::shared_ptr<rectangle>[length-1];
+        std::shared_ptr<std::shared_ptr<rectangle>[]> narr(new std::shared_ptr<rectangle>[length]);
     int current_index=0;
     for(int i=0;i<count;i++){
         if(i!=pos-1) {
@@ -87,7 +89,7 @@ if(count==0)
 }
 
 //перегрузка операций
-std::shared_ptr<rectangle>& TVector::operator[] (int i)
+std::shared_ptr<rectangle> TVector::operator[] (int i)
 {
     if(i >= 0 && i < this->length)
         return this->arr[i];
