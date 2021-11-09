@@ -9,6 +9,9 @@ Item<T>::Item(const std::shared_ptr<T>& item)
 }
 
 template <class T>
+TAllocationBlock Item<T>::tvec_alloc(sizeof(Item<T>), 100);
+
+template <class T>
 std::shared_ptr<T> Item<T>::Get() const {
   return this->item;
 }
@@ -36,14 +39,12 @@ void Item<T>::forget(){
 }
 template <class T>
 void* Item<T>::operator new(size_t size) {
-  std::cout << "Allocated :" << size << "bytes" << std::endl;
-  return malloc(size);
+  return tvec_alloc.allocate();
 }
 
 template <class T>
 void Item<T>::operator delete(void* p) {
-  std::cout << "Deleted" << std::endl;
-  free(p);
+  tvec_alloc.deallocate(p);
 }
 
 #include "rectangle.h"

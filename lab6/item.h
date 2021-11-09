@@ -2,7 +2,7 @@
 #define ITEM_H
 
 #include <memory>
-
+#include <tallocation_block.h>
 template <class T>
 class Item {
  public:
@@ -21,6 +21,7 @@ class Item {
  private:
   std::shared_ptr<T> item;
   std::shared_ptr<Item<T>> next;
+  static TAllocationBlock tvec_alloc;
 };
 
 

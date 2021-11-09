@@ -11,6 +11,7 @@ SOURCES += \
         item.cpp \
         main.cpp \
         rectangle.cpp \
+        tallocation_block.cpp \
         tvector.cpp
 
 TRANSLATIONS += \
@@ -29,4 +30,5 @@ HEADERS += \
     TreeNode.h \
     item.h \
     rectangle.h \
+    tallocation_block.h \
     tvector.h

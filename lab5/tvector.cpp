@@ -26,12 +26,18 @@ void TVector<T>::push_back(std::shared_ptr<T> newfig){
         for(int i=0;i<length-1;i++) narr[i]=arr[i];
 
         narr[length-1]= other;
+        if(count-1){
+            arr[count-2]->SetNext(narr[count-1]);
+          }
         //free(arr);
         arr=narr;
     }
     else if(count<length){
         arr[count]=other;
         count++;
+        if(count-1){
+            arr[count-2]->SetNext(arr[count-1]);
+          }
     }
 }
 

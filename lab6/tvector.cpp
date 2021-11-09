@@ -7,13 +7,12 @@ TVector<T>::TVector():length(0),count(0)
 
 template <class T>
 int TVector<T>::size(){
-    return this->length;
+    return this->count;
 }
 
 template <class T>
 bool TVector<T>::empty(){
-    if(this->length>0) return true;
-    else return false;
+return count==0;
 }
 
 template <class T>
@@ -26,12 +25,18 @@ void TVector<T>::push_back(std::shared_ptr<T> newfig){
         for(int i=0;i<length-1;i++) narr[i]=arr[i];
 
         narr[length-1]= other;
+        if(count-1){
+            arr[count-2]->SetNext(narr[count-1]);
+          }
         //free(arr);
         arr=narr;
     }
     else if(count<length){
         arr[count]=other;
         count++;
+        if(count-1){
+            arr[count-2]->SetNext(arr[count-1]);
+          }
     }
 }
 
@@ -43,7 +48,8 @@ TVector<T>::~TVector(){
 template <class T>
 std::shared_ptr<T> TVector<T>::pop_back(){
         std::shared_ptr<T> result;
-        std::shared_ptr<std::shared_ptr<Item<T>>[]> narr(new std::shared_ptr<Item<T>>[length]);
+  if(length>1){
+        std::shared_ptr<std::shared_ptr<Item<T>>[]> narr(new std::shared_ptr<Item<T>>[length-1]);
         for(int i=0;i<count-1;i++){
                 narr[i]=arr[i];
         }
@@ -52,6 +58,12 @@ std::shared_ptr<T> TVector<T>::pop_back(){
         length--;
         arr=narr;
         return result;
+    }
+  else{
+      count--;
+      length--;
+      return arr[0]->Get();
+    }
 }
 
 template <class T>
