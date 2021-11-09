@@ -46,7 +46,7 @@ T Tree<T>::get(){
 template< typename T >
 Tree< T >::~Tree()
 {
-   // delete_helper(_root);
+    delete _root;
 }
 
 template< typename T >
@@ -54,9 +54,10 @@ void Tree< T >::delete_helper(TreeNode< T > *node)
 {
     if (node != 0)
     {
+        if(node->_left!=0)
         delete_helper(node->_left);
+        if(node->_right!=0)
         delete_helper(node->_right);
-
         delete node;
     }
 }
@@ -71,8 +72,12 @@ template< typename T >
 void Tree< T >::insert_helper(TreeNode< T > **node, const T &data)
 {
     if (*node == 0)
+        {
         *node = new TreeNode< T > (data);
-    else
+        (*node)->_left=nullptr;
+        (*node)->_right=nullptr;
+      }
+        else
     {
         if ((*node)->_data > data)
             insert_helper(&((*node)->_left), data);
