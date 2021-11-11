@@ -1,6 +1,6 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
-#include "figure.h"
+#include "Figure.h"
 #include <iostream>
 
 class rectangle:public figure{

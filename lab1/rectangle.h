@@ -3,7 +3,7 @@
 #include "figure.h"
 #include <iostream>
 
-class Rectangle:public figure{
+class Rectangle:public Figure{
 public:
     Rectangle();
     Rectangle(std::istream&is);
@@ -11,7 +11,7 @@ public:
     void Print(std::ostream&os);
     size_t VertexesNumber();
     double Area();
-    ~Rectangle();
+    virtual ~Rectangle();
 
 private:
     double x1;

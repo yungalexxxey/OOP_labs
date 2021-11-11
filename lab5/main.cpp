@@ -1,8 +1,8 @@
 
 #include <iostream>
-#include "rectangle.cpp"
-#include <tvector.h>
-#include "Iter.h"
+#include "tvector.h"
+#include "rectangle.h"
+
 
 int main()
 {  TVector<Rectangle> vec;

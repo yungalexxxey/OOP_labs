@@ -1,10 +1,8 @@
 #ifndef TVECTOR_H
 #define TVECTOR_H
-#include "rectangle.h"
 #include <memory>
-#include <Iter.h>
-#include <item.h>
-
+#include "item.h"
+#include "Iter.h"
 template <class T>
 class TVector
 {

@@ -1,6 +1,6 @@
 #include "tvector.h"
 #include "rectangle.h"
-
+#include "item.h"
 template <class T>
 TVector<T>::TVector():length(0),count(0)
 {  }

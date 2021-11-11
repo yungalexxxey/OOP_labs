@@ -16,6 +16,7 @@ public:
     void remove(const T &);
     int depth() const;
     void print() const;
+    void tdelete();
     T get();
 private:
     TreeNode< T > *_root;
@@ -39,6 +40,10 @@ Tree< T >::Tree():
 _root(0)
 {
 }
+template<typename T>
+void Tree<T>::tdelete(){
+delete_helper(_root);
+}
 template< typename T >
 T Tree<T>::get(){
   return _root->_data;
@@ -46,7 +51,8 @@ T Tree<T>::get(){
 template< typename T >
 Tree< T >::~Tree()
 {
-    delete _root;
+    delete_helper(_root);
+    
 }
 
 template< typename T >

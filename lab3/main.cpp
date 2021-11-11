@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include "rectangle.cpp"
 #include "rectangle.h"
 #include "Figure.h"
 #include "tvector.h"

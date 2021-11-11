@@ -11,6 +11,9 @@ Rectangle::Rectangle(std::istream&is){
     std::cout <<"set x4 and y4:";
     is >> x4 >> y4;
 }
+Rectangle::~Rectangle(){
+    
+}
 void Rectangle::Print(std::ostream&os){
     os << "Rectangle " << "(" <<x1<<" "<<y1<<")"<< "(" <<x2<<" "<<y2<<")"<< "(" <<x3<<" "<<y3<<")"<< "(" <<x4<<" " <<y4<<")" <<std::endl;
 }

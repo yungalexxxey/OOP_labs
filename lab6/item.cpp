@@ -1,7 +1,5 @@
 #include "item.h"
 
-#include <iostream>
-
 template <class T>
 Item<T>::Item(const std::shared_ptr<T>& item)
     : item(item){
@@ -9,7 +7,7 @@ Item<T>::Item(const std::shared_ptr<T>& item)
 }
 
 template <class T>
-TAllocationBlock Item<T>::tvec_alloc(sizeof(Item<T>), 100);
+TAllocationBlock Item<T>::tvec_alloc(sizeof(Item<T>), 10);
 
 template <class T>
 std::shared_ptr<T> Item<T>::Get() const {

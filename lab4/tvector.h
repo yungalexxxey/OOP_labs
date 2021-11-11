@@ -2,7 +2,7 @@
 #define TVECTOR_H
 #include "rectangle.h"
 #include <memory>
-#include <figure.h>
+#include "figure.h"
 
 template <class T>
 class TVector
@@ -22,7 +22,7 @@ public:
     std::shared_ptr<T> pop_back();
     void clear();
 
-    std::shared_ptr<Item<T>> operator[] (int i) ;
+    std::shared_ptr<T> operator[] (int i) ;
     template <class A>
     friend std::ostream& operator<<(std::ostream &out,  TVector<A> &cont);
 };

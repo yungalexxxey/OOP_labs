@@ -51,6 +51,6 @@ TAllocationBlock::~TAllocationBlock() {
   } else {
     std::cout << "TAllocationBlock: Memory freed" << std::endl;
   }
-  //delete _free_blocks;
-  //delete _used_blocks;
+  //_free_blocks;
+  //_free_blocks.tdelete();
 }

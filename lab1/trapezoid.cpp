@@ -1,7 +1,7 @@
 #include "trapezoid.h"
 #include <math.h>
 
-trapezoid::Trapezoid(std::istream&is){
+Trapezoid::Trapezoid(std::istream&is){
     std::cout <<"set x1 and y1:";
     is >> x1 >> y1;
     std::cout <<"set x2 and y2:";
@@ -10,6 +10,9 @@ trapezoid::Trapezoid(std::istream&is){
     is >> x3 >> y3;
     std::cout <<"set x4 and y4:";
     is >> x4 >> y4;
+}
+Trapezoid::~Trapezoid(){
+    
 }
 void Trapezoid::Print(std::ostream&os){
     os << "Trapezoid " << "(" <<x1<<" "<<y1<<")"<< "(" <<x2<<" "<<y2<<")"<< "(" <<x3<<" "<<y3<<")"<< "(" <<x4<<" " <<y4<<")" <<std::endl;

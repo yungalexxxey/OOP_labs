@@ -1,6 +1,5 @@
 #include "tvector.h"
 #include "rectangle.h"
-
 template <class T>
 TVector<T>::TVector():length(0),count(0)
 {  }

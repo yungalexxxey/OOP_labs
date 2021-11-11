@@ -1,7 +1,6 @@
 
 #include <iostream>
-#include "rectangle.cpp"
-#include "rectangle.h"
+//#include "rectangle.cpp"
 #include "figure.h"
 #include "tvector.h"
 int main()

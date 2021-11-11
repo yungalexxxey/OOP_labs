@@ -10,6 +10,7 @@ private:
     Rectangle *arr;
 public:
     TVector();
+    ~TVector();
     TVector(const TVector& other);
     void InsertLast(Rectangle &newrec);
     const Rectangle Last();

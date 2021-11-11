@@ -1,9 +1,8 @@
 
 #include <iostream>
-#include "rectangle.cpp"
-#include "rhombus.cpp"
+#include "rhombus.h"
 #include "trapezoid.h"
-#include <tvector.h>
+#include "tvector.h"
 
 int main()
 {
@@ -26,9 +25,9 @@ int main()
     trec=containerrec.pop_back();
     ttrap=containertrap.pop_back();
     trhom=containerrhom.pop_back();
-    std::cout<<*trec<<std::endl;
-    std::cout<<*trhom<<std::endl;
-    std::cout<<*ttrap<<std::endl;
+    // std::cout<<*trec<<std::endl;
+    // std::cout<<*trhom<<std::endl;
+    // std::cout<<*ttrap<<std::endl;
     std::cout<<containerrec<<std::endl;
     std::cout<< containerrhom<<std::endl;
     std::cout<< containertrap<<std::endl;

@@ -3,7 +3,7 @@
 #include "figure.h"
 #include <iostream>
 
-class Rhombus:public figure
+class Rhombus:public Figure
 {
 public:
     Rhombus();

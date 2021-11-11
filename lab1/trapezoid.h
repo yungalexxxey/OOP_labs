@@ -3,7 +3,7 @@
 #include "figure.h"
 #include <iostream>
 
-class Trapezoid:public figure
+class Trapezoid:public Figure
 {
 public:
     Trapezoid(std::istream&is);
@@ -11,7 +11,7 @@ public:
     void Print(std::ostream&os);
     size_t VertexesNumber();
     double Area();
-    ~Trapezoid();
+    virtual ~Trapezoid();
 
 private:
     double x1;
