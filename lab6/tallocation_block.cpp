@@ -17,7 +17,7 @@ TAllocationBlock::TAllocationBlock(size_t size, size_t count)
 
 void TAllocationBlock::print()
 {
-  std::cout << "Bruh :C\n";
+  _free_blocks.print();
 }
 
 void *TAllocationBlock::allocate()
@@ -26,8 +26,8 @@ void *TAllocationBlock::allocate()
 
   if (_free_count > 0)
   {
-    result=_free_blocks.get();
-     _free_blocks.remove(result);
+    result = _free_blocks.get();
+    _free_blocks.remove(result);
     _free_count--;
     std::cout << "TAllocationBlock: Allocate " << (_count - _free_count);
     std::cout << " of " << _count << std::endl;
@@ -62,7 +62,8 @@ TAllocationBlock::~TAllocationBlock()
   {
     std::cout << "TAllocationBlock: Memory freed" << std::endl;
   }
-  while(!_free_blocks.empty()){
+  while (!_free_blocks.empty())
+  {
     _free_blocks.remove(_free_blocks.get());
   }
   free(_used_blocks);

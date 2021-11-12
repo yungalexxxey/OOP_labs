@@ -9,7 +9,6 @@ class TAllocationBlock {
   void* allocate();
   void deallocate(void* pointer);
   bool has_free_blocks();
-  void print();
   virtual ~TAllocationBlock();
 
  private:
