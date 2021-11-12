@@ -17,7 +17,7 @@ class TAllocationBlock {
   size_t _count;
 
   char* _used_blocks;
-  Tree<void*> _free_blocks;
+  Tree <void*> _free_blocks;
 
   size_t _free_count;
 };

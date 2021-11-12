@@ -1,5 +1,5 @@
 #include "item.h"
-
+#include <iostream>
 template <class T>
 Item<T>::Item(const std::shared_ptr<T>& item)
     : item(item){

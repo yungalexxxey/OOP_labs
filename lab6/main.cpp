@@ -2,12 +2,13 @@
 #include <iostream>
 #include "rectangle.h"
 #include "tvector.h"
+#include "Tree.h"
 void TestTVector()
 {
   TVector<Rectangle> vec;
 
   vec.push_back(std::shared_ptr<Rectangle>(new Rectangle(1, 1, 1, 1, 1, 1, 1, 1)));
-  vec.push_back(std::shared_ptr<Rectangle>(new Rectangle(1, 1, 1, 1, 1, 1, 1, 1)));
+  vec.push_back(std::shared_ptr<Rectangle>(new Rectangle(1, 1, 1, 1, 1, 1, 1, 2)));
   for (auto i : vec)
   {
     std::cout << *i << std::endl;
@@ -41,7 +42,7 @@ void TestAllocationBlock()
 }
 int main()
 {
-  //TestAllocationBlock();
+  TestAllocationBlock();
   TestTVector();
   return 0;
 }
