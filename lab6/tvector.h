@@ -10,6 +10,7 @@ private:
     int length;
     int count;
     std::shared_ptr<std::shared_ptr<Item<T>>[]> arr;
+
 public:
     TVector();
     ~TVector();
@@ -23,9 +24,9 @@ public:
 
     Iter<Item<T>, T> begin();
     Iter<Item<T>, T> end();
-    std::shared_ptr<Item<T>> operator[] (int i) ;
+    std::shared_ptr<Item<T>> operator[](int i);
     template <class A>
-    friend std::ostream& operator<<(std::ostream &out,  TVector<A> &cont);
+    friend std::ostream &operator<<(std::ostream &out, TVector<A> &cont);
 };
 
 #endif // TVECTOR_H

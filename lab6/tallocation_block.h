@@ -3,22 +3,24 @@
 
 #include <cstdlib>
 #include "Tree.h"
-class TAllocationBlock {
- public:
+class TAllocationBlock
+{
+public:
   TAllocationBlock(size_t size, size_t count);
-  void* allocate();
-  void deallocate(void* pointer);
+  void *allocate();
+  void deallocate(void *pointer);
   bool has_free_blocks();
+  void print();
   virtual ~TAllocationBlock();
 
- private:
+private:
   size_t _size;
   size_t _count;
 
-  char* _used_blocks;
-  Tree <void*> _free_blocks;
+  char *_used_blocks;
+  Tree<void *> _free_blocks;
 
   size_t _free_count;
 };
 
-#endif  // TALLOCATION_BLOCK_H
+#endif // TALLOCATION_BLOCK_H

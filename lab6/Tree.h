@@ -18,14 +18,15 @@ public:
     T get();
     bool empty();
     void print() const;
+
 private:
-TreeNode<T> *_root;
+    TreeNode<T> *_root;
 
-void insert_helper(TreeNode<T> **, const T &);
-void remove_helper(TreeNode<T> **, const T &);
+    void insert_helper(TreeNode<T> **, const T &);
+    void remove_helper(TreeNode<T> **, const T &);
 
-void delete_helper(TreeNode<T> *);
-void print_helper(TreeNode<T> *, int) const;
+    void delete_helper(TreeNode<T> *);
+    void print_helper(TreeNode<T> *, int) const;
 };
 
 template <typename T>

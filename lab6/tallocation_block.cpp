@@ -5,7 +5,6 @@ TAllocationBlock::TAllocationBlock(size_t size, size_t count)
     : _size(size), _count(count)
 {
   _used_blocks = (char *)malloc(_size * _count);
-  // _free_blocks = (void**)malloc(sizeof(void*) * _count);
 
   for (size_t i = 0; i < _count; ++i)
   {
@@ -67,6 +66,4 @@ TAllocationBlock::~TAllocationBlock()
     _free_blocks.remove(_free_blocks.get());
   }
   free(_used_blocks);
-  //_free_blocks;
-  //_free_blocks.tdelete();
 }
