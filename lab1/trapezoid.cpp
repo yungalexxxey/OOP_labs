@@ -20,12 +20,6 @@ void Trapezoid::Print(std::ostream&os){
 size_t Trapezoid::VertexesNumber(){
     return 4;
 }
-bool Trapezoid::isit(){
-double k=(y1-y4)/(x1-x4);
-double k1=(y2-y3)/(x2-x3);
-if(k==k1) return true;
-else return false;
-}
 double Trapezoid::Area(){
   double h=sqrt((y2-y1)*(y2-y1));
   double os1=sqrt((x4-x1)*(x4-x1)+(y1-y4)*(y1-y4));

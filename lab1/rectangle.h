@@ -7,7 +7,6 @@ class Rectangle:public Figure{
 public:
     Rectangle();
     Rectangle(std::istream&is);
-    bool isit();
     void Print(std::ostream&os);
     size_t VertexesNumber();
     double Area();

@@ -61,4 +61,5 @@ Rectangle& Rectangle::operator= (Rectangle &rec){
     this->y2=rec.y2;
     this->y3=rec.y3;
     this->y4=rec.y4;
+    return *this;
 }

@@ -1,3 +1,0 @@
-/home/yungalaxxxy/Документы/GitHub/labs/lab0.2/CMakeFiles/oop_exercise_02.dir
-/home/yungalaxxxy/Документы/GitHub/labs/lab0.2/CMakeFiles/edit_cache.dir
-/home/yungalaxxxy/Документы/GitHub/labs/lab0.2/CMakeFiles/rebuild_cache.dir

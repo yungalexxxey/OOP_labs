@@ -20,15 +20,7 @@ void Rectangle::Print(std::ostream&os){
 size_t Rectangle::VertexesNumber(){
     return 4;
 }
-bool Rectangle::isit(){
-double perp;
-double perp2;
-perp=(x4-x1)*(x2-x1)+(y4-y1)*(y2-y1);
-perp2=(x3-x4)*(x3-x2)+(y3-y4)*(y3-y2);
-if((perp+perp2)==0) return true;
-else return false;
 
-}
 double Rectangle::Area(){
     double r1 = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     double r2 = sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3));

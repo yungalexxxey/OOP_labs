@@ -1,7 +1,8 @@
 #include "tvector.h"
 #include "rectangle.h"
-TVector::TVector() : length(0), count(0)
+TVector::TVector() : length(1), count(0)
 {
+    arr=new Rectangle[1];
 }
 TVector::~TVector()
 {
@@ -13,10 +14,7 @@ int TVector::Length()
 }
 bool TVector::Empty()
 {
-    if (this->length > 0)
-        return true;
-    else
-        return false;
+    return !count==0;
 }
 
 void TVector::Resize(int newlength)
@@ -80,7 +78,7 @@ const Rectangle TVector::Last()
     Rectangle tmp = arr[count - 1];
     count--;
     length--;
-    delete[] arr;
+    delete [] arr;
     arr = narr;
     return tmp;
 }
@@ -113,6 +111,7 @@ Rectangle &TVector::operator[](int i)
 {
     if (i >= 0 && i < this->length)
         return this->arr[i];
+    else exit;
 }
 
 std::ostream &operator<<(std::ostream &out, TVector &cont)

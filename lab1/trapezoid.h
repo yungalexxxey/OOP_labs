@@ -7,7 +7,6 @@ class Trapezoid:public Figure
 {
 public:
     Trapezoid(std::istream&is);
-    bool isit();
     void Print(std::ostream&os);
     size_t VertexesNumber();
     double Area();
